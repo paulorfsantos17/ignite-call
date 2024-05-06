@@ -5,6 +5,8 @@ import { z } from 'zod'
 import { useForm } from 'react-hook-form'
 import { zodResolver } from '@hookform/resolvers/zod'
 import { useRouter } from 'next/router'
+import { api } from '../../lib/axios'
+import { ArrowRight } from 'phosphor-react'
 
 const registerFormSchema = z.object({
   username: z
@@ -34,7 +36,16 @@ export default function Register() {
   const router = useRouter()
 
   async function handleRegister(data: RegisterFormData) {
-    console.log(data)
+    try {
+      api.post('users', {
+        username: data.username,
+        name: data.name,
+      })
+
+      await router.push('/register/connect-calendar')
+    } catch (error) {
+      console.log('🚀 ~ handleRegister ~ error:', error)
+    }
   }
 
   useEffect(() => {
@@ -76,6 +87,7 @@ export default function Register() {
 
         <Button type="submit" disabled={isSubmitting}>
           Próximo passo
+          <ArrowRight />
         </Button>
       </Form>
     </Container>
