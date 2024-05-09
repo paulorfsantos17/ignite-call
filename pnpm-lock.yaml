@@ -17,6 +17,9 @@ importers:
       '@prisma/client':
         specifier: ^5.13.0
         version: 5.13.0(prisma@5.13.0)
+      '@tanstack/react-query':
+        specifier: ^5.35.1
+        version: 5.35.1(react@18.2.0)
       axios:
         specifier: ^1.6.8
         version: 1.6.8
@@ -69,6 +72,9 @@ importers:
       eslint-config-next:
         specifier: 14.2.1
         version: 14.2.1(eslint@8.57.0)(typescript@5.4.5)
+      eslint-plugin-simple-import-sort:
+        specifier: ^12.1.0
+        version: 12.1.0(eslint@8.57.0)
       prisma:
         specifier: ^5.13.0
         version: 5.13.0
@@ -383,6 +389,14 @@ packages:
 
   '@swc/helpers@0.5.5':
     resolution: {integrity: sha512-KGYxvIOXcceOAbEk4bi/dVLEK9z8sZ0uBB3Il5b1rhfClSpcX0yfRO0KmTkqR2cnQDymwLB+25ZyMzICg/cm/A==}
+
+  '@tanstack/query-core@5.35.1':
+    resolution: {integrity: sha512-0Dnpybqb8+ps6WgqBnqFEC+1F/xLvUosRAq+wiGisTgolOZzqZfkE2995dEXmhuzINiTM7/a6xSGznU0NIvBkw==}
+
+  '@tanstack/react-query@5.35.1':
+    resolution: {integrity: sha512-i2T7m2ffQdNqlX3pO+uMsnQ0H4a59Ens2GxtlMsRiOvdSB4SfYmHb27MnvFV8rGmtWRaa4gPli0/rpDoSS5LbQ==}
+    peerDependencies:
+      react: ^18.0.0
 
   '@types/cookie@0.6.0':
     resolution: {integrity: sha512-4Kh9a6B2bQciAhf7FSuMRRkUWecJgJu9nPnx3yzpsfXX/c50REIqpHY4C82bXP90qrLtXtkDxTZosYO3UpOwlA==}
@@ -901,6 +915,11 @@ packages:
     engines: {node: '>=4'}
     peerDependencies:
       eslint: ^3 || ^4 || ^5 || ^6 || ^7 || ^8
+
+  eslint-plugin-simple-import-sort@12.1.0:
+    resolution: {integrity: sha512-Y2fqAfC11TcG/WP3TrI1Gi3p3nc8XJyEOJYHyEPEGI/UAgNx6akxxlX74p7SbAQdLcgASKhj8M0GKvH3vq/+ig==}
+    peerDependencies:
+      eslint: '>=5.0.0'
 
   eslint-scope@7.2.2:
     resolution: {integrity: sha512-dOt21O7lTMhDM+X9mB4GX+DZrZtCUJPL/wlcTqxyrx5IvO0IYtILdtrQGQp+8n5S0gwSVmOf9NQrjMOgfQZlIg==}
@@ -2096,6 +2115,13 @@ snapshots:
       '@swc/counter': 0.1.3
       tslib: 2.6.2
 
+  '@tanstack/query-core@5.35.1': {}
+
+  '@tanstack/react-query@5.35.1(react@18.2.0)':
+    dependencies:
+      '@tanstack/query-core': 5.35.1
+      react: 18.2.0
+
   '@types/cookie@0.6.0': {}
 
   '@types/json-schema@7.0.15': {}
@@ -2795,6 +2821,10 @@ snapshots:
       resolve: 2.0.0-next.5
       semver: 6.3.1
       string.prototype.matchall: 4.0.11
+
+  eslint-plugin-simple-import-sort@12.1.0(eslint@8.57.0):
+    dependencies:
+      eslint: 8.57.0
 
   eslint-scope@7.2.2:
     dependencies:
