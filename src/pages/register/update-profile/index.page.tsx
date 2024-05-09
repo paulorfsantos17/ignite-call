@@ -1,5 +1,4 @@
-import React from 'react'
-import { Container, Header } from '../styles'
+import { zodResolver } from '@hookform/resolvers/zod'
 import {
   Avatar,
   Button,
@@ -8,17 +7,19 @@ import {
   Text,
   TextArea,
 } from '@ignite-ui/react'
-import { z } from 'zod'
-import { useForm } from 'react-hook-form'
-import { zodResolver } from '@hookform/resolvers/zod'
-import { ArrowRight } from 'phosphor-react'
-import { FormAnnotation, ProfileBox } from './style'
 import { GetServerSideProps } from 'next'
-import { buildNextAuthOptions } from '../../api/auth/[...nextauth].api'
+import { useRouter } from 'next/router'
 import { getServerSession } from 'next-auth'
 import { useSession } from 'next-auth/react'
+import { ArrowRight } from 'phosphor-react'
+import React from 'react'
+import { useForm } from 'react-hook-form'
+import { z } from 'zod'
+
 import { api } from '../../../lib/axios'
-import { useRouter } from 'next/router'
+import { buildNextAuthOptions } from '../../api/auth/[...nextauth].api'
+import { Container, Header } from '../styles'
+import { FormAnnotation, ProfileBox } from './style'
 
 const updateProdileFormSchema = z.object({
   bio: z.string(),

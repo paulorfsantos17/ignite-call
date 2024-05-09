@@ -1,4 +1,8 @@
+import dayjs from 'dayjs'
 import { CaretLeft, CaretRight } from 'phosphor-react'
+import { useMemo, useState } from 'react'
+
+import { getWeekDays } from '../../utils/get-week-days'
 import {
   CalendarActions,
   CalendarBody,
@@ -7,9 +11,6 @@ import {
   CalendarHeader,
   CalendarTitle,
 } from './style'
-import { getWeekDays } from '../../utils/get-week-days'
-import { useMemo, useState } from 'react'
-import dayjs from 'dayjs'
 
 interface CalendarWeek {
   week: number

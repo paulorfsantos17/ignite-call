@@ -1,5 +1,4 @@
-import React from 'react'
-import { Container, FormError, Header } from '../styles'
+import { zodResolver } from '@hookform/resolvers/zod'
 import {
   Button,
   Checkbox,
@@ -8,6 +7,16 @@ import {
   Text,
   TextInput,
 } from '@ignite-ui/react'
+import { useRouter } from 'next/router'
+import { ArrowRight } from 'phosphor-react'
+import React from 'react'
+import { Controller, useFieldArray, useForm } from 'react-hook-form'
+import { z } from 'zod'
+
+import { api } from '../../../lib/axios'
+import { convertTimeStringToMinutes } from '../../../utils/convert-time-string-to-minutes'
+import { getWeekDays } from '../../../utils/get-week-days'
+import { Container, FormError, Header } from '../styles'
 import {
   IntervalBox,
   IntervalDay,
@@ -15,14 +24,6 @@ import {
   IntervalItem,
   IntervalsContainer,
 } from './style'
-import { ArrowRight } from 'phosphor-react'
-import { Controller, useFieldArray, useForm } from 'react-hook-form'
-import { z } from 'zod'
-import { getWeekDays } from '../../../utils/get-week-days'
-import { zodResolver } from '@hookform/resolvers/zod'
-import { convertTimeStringToMinutes } from '../../../utils/convert-time-string-to-minutes'
-import { api } from '../../../lib/axios'
-import { useRouter } from 'next/router'
 
 const timeIntervalsFormSchema = z.object({
   intervals: z
