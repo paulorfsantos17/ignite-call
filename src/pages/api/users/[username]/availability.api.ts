@@ -84,7 +84,7 @@ export default async function handle(
 
     const isTimeIsPast = referenceDate.set('hour', time).isBefore(new Date())
 
-    return !isTimeBlocked && !isTimeIsPast
+    return isTimeBlocked && !isTimeIsPast
   })
 
   return res.json({
