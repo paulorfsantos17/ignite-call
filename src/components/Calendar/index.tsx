@@ -31,11 +31,10 @@ interface BlockedDates {
 }
 
 interface CalendarProps {
-  selectedDate: Date | null
   onDateSelected: (date: Date) => void
 }
 
-export function Calendar({ onDateSelected, selectedDate }: CalendarProps) {
+export function Calendar({ onDateSelected }: CalendarProps) {
   const router = useRouter()
 
   const username = String(router.query.username)
